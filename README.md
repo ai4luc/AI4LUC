@@ -7,26 +7,26 @@ O Bioma Cerrado é conhecido pela biodiversidade de fauna e flora, mas principal
 
 Neste repositório estão anexados:
 
-1. Algoritmos de Engenharia de dados:
-1.1 Mesclagem de bandas espectrais
-1.2 Recorte da imagem em tile
-1.3 Filtro de imagens sem dados
-1.4 Algoritmo de Data Split
+1. Algoritmos de Engenharia de dados: <br>
+1.1 Mesclagem de bandas espectrais <br>
+1.2 Recorte da imagem em tile <br>
+1.3 Filtro de imagens sem dados <br>
+1.4 Algoritmo de Data Split <br>
 
 2. CNN de classificação contextual
-2.1 CerraNetv3 - algoritmo de treinamento 
-2.2 CerraNetv3 - algoritmo de teste e pesos treinados
-Acesse: https://drive.google.com/drive/folders/1KSidsIiosZdrhDM-IF9KLckTKLytV_hC?usp=sharing 
-2.3 Support Vector Machine - algoritmo de treinamento e teste
-2.4 Random Forest - algoritmo de treinamento e teste
+2.1 CerraNetv3 - algoritmo de treinamento  <br>
+2.2 CerraNetv3 - algoritmo de teste e pesos treinados <br>
+Acesse: https://drive.google.com/drive/folders/1KSidsIiosZdrhDM-IF9KLckTKLytV_hC?usp=sharing  <br>
+2.3 Support Vector Machine - algoritmo de treinamento e teste <br>
+2.4 Random Forest - algoritmo de treinamento e teste <br>
 
 3. Dataset1 (50.000 amostras rotuladas)
-3.1 Split de treinamento, validação e teste
-Acesse: https://drive.google.com/drive/folders/1ODKZXJBbH1VrQWAAGMnHdOI-r4t5brBX?usp=sharing 
+3.1 Split de treinamento, validação e teste <br>
+Acesse: https://drive.google.com/drive/folders/1ODKZXJBbH1VrQWAAGMnHdOI-r4t5brBX?usp=sharing <br>
 
 4. Proposta de Dissertação
-Acesse: https://drive.google.com/drive/folders/1UwTmBaxpyQR6m-Tw5fmQTBxwW4Ph6hai?usp=sharing
-5. Keynote
-Acesse: https://drive.google.com/drive/folders/1pHNjv2cAj-DSQEyCCeP1YgIy-YDWwfhK?usp=sharing 
+Acesse: https://drive.google.com/drive/folders/1UwTmBaxpyQR6m-Tw5fmQTBxwW4Ph6hai?usp=sharing <br>
+5. Keynote <br>
+Acesse: https://drive.google.com/drive/folders/1pHNjv2cAj-DSQEyCCeP1YgIy-YDWwfhK?usp=sharing  <br>
 
 
