@@ -22,7 +22,7 @@ Acesse: https://drive.google.com/drive/folders/1KSidsIiosZdrhDM-IF9KLckTKLytV_hC
 
 3. Dataset1 (50.000 amostras rotuladas)
 3.1 Split de treinamento, validação e teste <br>
-Acesse: https://drive.google.com/drive/folders/1ODKZXJBbH1VrQWAAGMnHdOI-r4t5brBX?usp=sharing <br>
+Acesse: https://www.kaggle.com/datasets/cerranet/biome-cerrado-dataset-cerradata <br>
 
 4. Proposta de Dissertação
 Acesse: https://drive.google.com/drive/folders/1UwTmBaxpyQR6m-Tw5fmQTBxwW4Ph6hai?usp=sharing <br>
