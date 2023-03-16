@@ -16,6 +16,7 @@ AI4LUC is a general method but an instance of a method was developed based on th
 To simply run the source code, do the following steps:
 
 ### Install the following requirements:
+miniconda
     
     ```
     python==3.9
