@@ -1,0 +1,400 @@
+Train Dataset: <BatchDataset element_spec=(TensorSpec(shape=(16, 256, 256, 3), dtype=tf.float32, name=None), TensorSpec(shape=(16, 256, 256, 1), dtype=tf.float32, name=None))>
+Val Dataset: <BatchDataset element_spec=(TensorSpec(shape=(16, 256, 256, 3), dtype=tf.float32, name=None), TensorSpec(shape=(16, 256, 256, 1), dtype=tf.float32, name=None))>
+Model: "model"
+__________________________________________________________________________________________________
+ Layer (type)                   Output Shape         Param #     Connected to                     
+==================================================================================================
+ input_1 (InputLayer)           [(None, 256, 256, 3  0           []                               
+                                )]                                                                
+                                                                                                  
+ conv2d (Conv2D)                (None, 128, 128, 32  896         ['input_1[0][0]']                
+                                )                                                                 
+                                                                                                  
+ batch_normalization (BatchNorm  (None, 128, 128, 32  128        ['conv2d[0][0]']                 
+ alization)                     )                                                                 
+                                                                                                  
+ activation (Activation)        (None, 128, 128, 32  0           ['batch_normalization[0][0]']    
+                                )                                                                 
+                                                                                                  
+ activation_1 (Activation)      (None, 128, 128, 32  0           ['activation[0][0]']             
+                                )                                                                 
+                                                                                                  
+ separable_conv2d (SeparableCon  (None, 128, 128, 64  2400       ['activation_1[0][0]']           
+ v2D)                           )                                                                 
+                                                                                                  
+ batch_normalization_1 (BatchNo  (None, 128, 128, 64  256        ['separable_conv2d[0][0]']       
+ rmalization)                   )                                                                 
+                                                                                                  
+ activation_2 (Activation)      (None, 128, 128, 64  0           ['batch_normalization_1[0][0]']  
+                                )                                                                 
+                                                                                                  
+ separable_conv2d_1 (SeparableC  (None, 128, 128, 64  4736       ['activation_2[0][0]']           
+ onv2D)                         )                                                                 
+                                                                                                  
+ batch_normalization_2 (BatchNo  (None, 128, 128, 64  256        ['separable_conv2d_1[0][0]']     
+ rmalization)                   )                                                                 
+                                                                                                  
+ max_pooling2d (MaxPooling2D)   (None, 64, 64, 64)   0           ['batch_normalization_2[0][0]']  
+                                                                                                  
+ conv2d_1 (Conv2D)              (None, 64, 64, 64)   2112        ['activation[0][0]']             
+                                                                                                  
+ add (Add)                      (None, 64, 64, 64)   0           ['max_pooling2d[0][0]',          
+                                                                  'conv2d_1[0][0]']               
+                                                                                                  
+ activation_3 (Activation)      (None, 64, 64, 64)   0           ['add[0][0]']                    
+                                                                                                  
+ separable_conv2d_2 (SeparableC  (None, 64, 64, 128)  8896       ['activation_3[0][0]']           
+ onv2D)                                                                                           
+                                                                                                  
+ batch_normalization_3 (BatchNo  (None, 64, 64, 128)  512        ['separable_conv2d_2[0][0]']     
+ rmalization)                                                                                     
+                                                                                                  
+ activation_4 (Activation)      (None, 64, 64, 128)  0           ['batch_normalization_3[0][0]']  
+                                                                                                  
+ separable_conv2d_3 (SeparableC  (None, 64, 64, 128)  17664      ['activation_4[0][0]']           
+ onv2D)                                                                                           
+                                                                                                  
+ batch_normalization_4 (BatchNo  (None, 64, 64, 128)  512        ['separable_conv2d_3[0][0]']     
+ rmalization)                                                                                     
+                                                                                                  
+ max_pooling2d_1 (MaxPooling2D)  (None, 32, 32, 128)  0          ['batch_normalization_4[0][0]']  
+                                                                                                  
+ conv2d_2 (Conv2D)              (None, 32, 32, 128)  8320        ['add[0][0]']                    
+                                                                                                  
+ add_1 (Add)                    (None, 32, 32, 128)  0           ['max_pooling2d_1[0][0]',        
+                                                                  'conv2d_2[0][0]']               
+                                                                                                  
+ activation_5 (Activation)      (None, 32, 32, 128)  0           ['add_1[0][0]']                  
+                                                                                                  
+ separable_conv2d_4 (SeparableC  (None, 32, 32, 256)  34176      ['activation_5[0][0]']           
+ onv2D)                                                                                           
+                                                                                                  
+ batch_normalization_5 (BatchNo  (None, 32, 32, 256)  1024       ['separable_conv2d_4[0][0]']     
+ rmalization)                                                                                     
+                                                                                                  
+ activation_6 (Activation)      (None, 32, 32, 256)  0           ['batch_normalization_5[0][0]']  
+                                                                                                  
+ separable_conv2d_5 (SeparableC  (None, 32, 32, 256)  68096      ['activation_6[0][0]']           
+ onv2D)                                                                                           
+                                                                                                  
+ batch_normalization_6 (BatchNo  (None, 32, 32, 256)  1024       ['separable_conv2d_5[0][0]']     
+ rmalization)                                                                                     
+                                                                                                  
+ max_pooling2d_2 (MaxPooling2D)  (None, 16, 16, 256)  0          ['batch_normalization_6[0][0]']  
+                                                                                                  
+ conv2d_3 (Conv2D)              (None, 16, 16, 256)  33024       ['add_1[0][0]']                  
+                                                                                                  
+ add_2 (Add)                    (None, 16, 16, 256)  0           ['max_pooling2d_2[0][0]',        
+                                                                  'conv2d_3[0][0]']               
+                                                                                                  
+ activation_7 (Activation)      (None, 16, 16, 256)  0           ['add_2[0][0]']                  
+                                                                                                  
+ conv2d_transpose (Conv2DTransp  (None, 16, 16, 256)  590080     ['activation_7[0][0]']           
+ ose)                                                                                             
+                                                                                                  
+ batch_normalization_7 (BatchNo  (None, 16, 16, 256)  1024       ['conv2d_transpose[0][0]']       
+ rmalization)                                                                                     
+                                                                                                  
+ activation_8 (Activation)      (None, 16, 16, 256)  0           ['batch_normalization_7[0][0]']  
+                                                                                                  
+ conv2d_transpose_1 (Conv2DTran  (None, 16, 16, 256)  590080     ['activation_8[0][0]']           
+ spose)                                                                                           
+                                                                                                  
+ batch_normalization_8 (BatchNo  (None, 16, 16, 256)  1024       ['conv2d_transpose_1[0][0]']     
+ rmalization)                                                                                     
+                                                                                                  
+ up_sampling2d_1 (UpSampling2D)  (None, 32, 32, 256)  0          ['add_2[0][0]']                  
+                                                                                                  
+ up_sampling2d (UpSampling2D)   (None, 32, 32, 256)  0           ['batch_normalization_8[0][0]']  
+                                                                                                  
+ conv2d_4 (Conv2D)              (None, 32, 32, 256)  65792       ['up_sampling2d_1[0][0]']        
+                                                                                                  
+ add_3 (Add)                    (None, 32, 32, 256)  0           ['up_sampling2d[0][0]',          
+                                                                  'conv2d_4[0][0]']               
+                                                                                                  
+ activation_9 (Activation)      (None, 32, 32, 256)  0           ['add_3[0][0]']                  
+                                                                                                  
+ conv2d_transpose_2 (Conv2DTran  (None, 32, 32, 128)  295040     ['activation_9[0][0]']           
+ spose)                                                                                           
+                                                                                                  
+ batch_normalization_9 (BatchNo  (None, 32, 32, 128)  512        ['conv2d_transpose_2[0][0]']     
+ rmalization)                                                                                     
+                                                                                                  
+ activation_10 (Activation)     (None, 32, 32, 128)  0           ['batch_normalization_9[0][0]']  
+                                                                                                  
+ conv2d_transpose_3 (Conv2DTran  (None, 32, 32, 128)  147584     ['activation_10[0][0]']          
+ spose)                                                                                           
+                                                                                                  
+ batch_normalization_10 (BatchN  (None, 32, 32, 128)  512        ['conv2d_transpose_3[0][0]']     
+ ormalization)                                                                                    
+                                                                                                  
+ up_sampling2d_3 (UpSampling2D)  (None, 64, 64, 256)  0          ['add_3[0][0]']                  
+                                                                                                  
+ up_sampling2d_2 (UpSampling2D)  (None, 64, 64, 128)  0          ['batch_normalization_10[0][0]'] 
+                                                                                                  
+ conv2d_5 (Conv2D)              (None, 64, 64, 128)  32896       ['up_sampling2d_3[0][0]']        
+                                                                                                  
+ add_4 (Add)                    (None, 64, 64, 128)  0           ['up_sampling2d_2[0][0]',        
+                                                                  'conv2d_5[0][0]']               
+                                                                                                  
+ activation_11 (Activation)     (None, 64, 64, 128)  0           ['add_4[0][0]']                  
+                                                                                                  
+ conv2d_transpose_4 (Conv2DTran  (None, 64, 64, 64)  73792       ['activation_11[0][0]']          
+ spose)                                                                                           
+                                                                                                  
+ batch_normalization_11 (BatchN  (None, 64, 64, 64)  256         ['conv2d_transpose_4[0][0]']     
+ ormalization)                                                                                    
+                                                                                                  
+ activation_12 (Activation)     (None, 64, 64, 64)   0           ['batch_normalization_11[0][0]'] 
+                                                                                                  
+ conv2d_transpose_5 (Conv2DTran  (None, 64, 64, 64)  36928       ['activation_12[0][0]']          
+ spose)                                                                                           
+                                                                                                  
+ batch_normalization_12 (BatchN  (None, 64, 64, 64)  256         ['conv2d_transpose_5[0][0]']     
+ ormalization)                                                                                    
+                                                                                                  
+ up_sampling2d_5 (UpSampling2D)  (None, 128, 128, 12  0          ['add_4[0][0]']                  
+                                8)                                                                
+                                                                                                  
+ up_sampling2d_4 (UpSampling2D)  (None, 128, 128, 64  0          ['batch_normalization_12[0][0]'] 
+                                )                                                                 
+                                                                                                  
+ conv2d_6 (Conv2D)              (None, 128, 128, 64  8256        ['up_sampling2d_5[0][0]']        
+                                )                                                                 
+                                                                                                  
+ add_5 (Add)                    (None, 128, 128, 64  0           ['up_sampling2d_4[0][0]',        
+                                )                                 'conv2d_6[0][0]']               
+                                                                                                  
+ activation_13 (Activation)     (None, 128, 128, 64  0           ['add_5[0][0]']                  
+                                )                                                                 
+                                                                                                  
+ conv2d_transpose_6 (Conv2DTran  (None, 128, 128, 32  18464      ['activation_13[0][0]']          
+ spose)                         )                                                                 
+                                                                                                  
+ batch_normalization_13 (BatchN  (None, 128, 128, 32  128        ['conv2d_transpose_6[0][0]']     
+ ormalization)                  )                                                                 
+                                                                                                  
+ activation_14 (Activation)     (None, 128, 128, 32  0           ['batch_normalization_13[0][0]'] 
+                                )                                                                 
+                                                                                                  
+ conv2d_transpose_7 (Conv2DTran  (None, 128, 128, 32  9248       ['activation_14[0][0]']          
+ spose)                         )                                                                 
+                                                                                                  
+ batch_normalization_14 (BatchN  (None, 128, 128, 32  128        ['conv2d_transpose_7[0][0]']     
+ ormalization)                  )                                                                 
+                                                                                                  
+ up_sampling2d_7 (UpSampling2D)  (None, 256, 256, 64  0          ['add_5[0][0]']                  
+                                )                                                                 
+                                                                                                  
+ up_sampling2d_6 (UpSampling2D)  (None, 256, 256, 32  0          ['batch_normalization_14[0][0]'] 
+                                )                                                                 
+                                                                                                  
+ conv2d_7 (Conv2D)              (None, 256, 256, 32  2080        ['up_sampling2d_7[0][0]']        
+                                )                                                                 
+                                                                                                  
+ add_6 (Add)                    (None, 256, 256, 32  0           ['up_sampling2d_6[0][0]',        
+                                )                                 'conv2d_7[0][0]']               
+                                                                                                  
+ conv2d_8 (Conv2D)              (None, 256, 256, 8)  2312        ['add_6[0][0]']                  
+                                                                                                  
+==================================================================================================
+Total params: 2,060,424
+Trainable params: 2,056,648
+Non-trainable params: 3,776
+__________________________________________________________________________________________________
+WARNING:tensorflow:`period` argument is deprecated. Please use `save_freq` to specify the frequency in number of batches seen.
+2023-02-21 13:37:26.210382: W tensorflow/core/platform/profile_utils/cpu_utils.cc:128] Failed to get CPU frequency: 0 Hz
+Epoch 1/48
+2023-02-21 13:37:27.608395: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:113] Plugin optimizer for device_type GPU is enabled.
+3712/3712 [==============================] - ETA: 0s - loss: 0.9546 - accuracy: 0.70622023-02-21 14:40:38.068340: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:113] Plugin optimizer for device_type GPU is enabled.
+
+Epoch 1: loss improved from inf to 0.95455, saving model to ../../trained_models/best_unet.hdf5
+3712/3712 [==============================] - 4268s 1s/step - loss: 0.9546 - accuracy: 0.7062 - val_loss: 3.3603 - val_accuracy: 0.1292
+Epoch 2/48
+3712/3712 [==============================] - ETA: 0s - loss: 0.9399 - accuracy: 0.7075     
+Epoch 2: loss improved from 0.95455 to 0.93992, saving model to ../../trained_models/best_unet.hdf5
+3712/3712 [==============================] - 4250s 1s/step - loss: 0.9399 - accuracy: 0.7075 - val_loss: 2.8182 - val_accuracy: 0.1292
+Epoch 3/48
+3712/3712 [==============================] - ETA: 0s - loss: 0.9367 - accuracy: 0.7085     
+Epoch 3: loss improved from 0.93992 to 0.93672, saving model to ../../trained_models/best_unet.hdf5
+3712/3712 [==============================] - 4241s 1s/step - loss: 0.9367 - accuracy: 0.7085 - val_loss: 3.1922 - val_accuracy: 0.1300
+Epoch 4/48
+3712/3712 [==============================] - ETA: 0s - loss: 0.9292 - accuracy: 0.7095     
+Epoch 4: loss improved from 0.93672 to 0.92925, saving model to ../../trained_models/best_unet.hdf5
+3712/3712 [==============================] - 4287s 1s/step - loss: 0.9292 - accuracy: 0.7095 - val_loss: 3.0673 - val_accuracy: 0.1295
+Epoch 5/48
+3712/3712 [==============================] - ETA: 0s - loss: 0.9222 - accuracy: 0.7105     
+Epoch 5: loss improved from 0.92925 to 0.92217, saving model to ../../trained_models/best_unet.hdf5
+3712/3712 [==============================] - 4648s 1s/step - loss: 0.9222 - accuracy: 0.7105 - val_loss: 3.1500 - val_accuracy: 0.1294
+Epoch 6/48
+3712/3712 [==============================] - ETA: 0s - loss: 0.9189 - accuracy: 0.7109     
+Epoch 6: loss improved from 0.92217 to 0.91894, saving model to ../../trained_models/best_unet.hdf5
+3712/3712 [==============================] - 4533s 1s/step - loss: 0.9189 - accuracy: 0.7109 - val_loss: 2.9272 - val_accuracy: 0.1310
+Epoch 7/48
+3712/3712 [==============================] - ETA: 0s - loss: 0.9115 - accuracy: 0.7120     
+Epoch 7: loss improved from 0.91894 to 0.91145, saving model to ../../trained_models/best_unet.hdf5
+3712/3712 [==============================] - 4669s 1s/step - loss: 0.9115 - accuracy: 0.7120 - val_loss: 2.5307 - val_accuracy: 0.1488
+Epoch 8/48
+3712/3712 [==============================] - ETA: 0s - loss: 0.9033 - accuracy: 0.7131     
+Epoch 8: loss improved from 0.91145 to 0.90330, saving model to ../../trained_models/best_unet.hdf5
+3712/3712 [==============================] - 4762s 1s/step - loss: 0.9033 - accuracy: 0.7131 - val_loss: 2.4629 - val_accuracy: 0.1339
+Epoch 9/48
+3712/3712 [==============================] - ETA: 0s - loss: 0.8985 - accuracy: 0.7143     
+Epoch 9: loss improved from 0.90330 to 0.89846, saving model to ../../trained_models/best_unet.hdf5
+3712/3712 [==============================] - 4472s 1s/step - loss: 0.8985 - accuracy: 0.7143 - val_loss: 2.6907 - val_accuracy: 0.1447
+Epoch 10/48
+3712/3712 [==============================] - ETA: 0s - loss: 0.8976 - accuracy: 0.7144     
+Epoch 10: loss improved from 0.89846 to 0.89758, saving model to ../../trained_models/best_unet.hdf5
+3712/3712 [==============================] - 4224s 1s/step - loss: 0.8976 - accuracy: 0.7144 - val_loss: 2.7756 - val_accuracy: 0.1331
+Epoch 11/48
+3712/3712 [==============================] - ETA: 0s - loss: 0.8914 - accuracy: 0.7153     
+Epoch 11: loss improved from 0.89758 to 0.89142, saving model to ../../trained_models/best_unet.hdf5
+3712/3712 [==============================] - 4224s 1s/step - loss: 0.8914 - accuracy: 0.7153 - val_loss: 2.7691 - val_accuracy: 0.1322
+Epoch 12/48
+3712/3712 [==============================] - ETA: 0s - loss: 0.8862 - accuracy: 0.7167     
+Epoch 12: loss improved from 0.89142 to 0.88618, saving model to ../../trained_models/best_unet.hdf5
+3712/3712 [==============================] - 4219s 1s/step - loss: 0.8862 - accuracy: 0.7167 - val_loss: 2.5162 - val_accuracy: 0.1568
+Epoch 13/48
+3712/3712 [==============================] - ETA: 0s - loss: 0.8815 - accuracy: 0.7178     
+Epoch 13: loss improved from 0.88618 to 0.88151, saving model to ../../trained_models/best_unet.hdf5
+3712/3712 [==============================] - 4215s 1s/step - loss: 0.8815 - accuracy: 0.7178 - val_loss: 2.5548 - val_accuracy: 0.1484
+Epoch 14/48
+3712/3712 [==============================] - ETA: 0s - loss: 0.8789 - accuracy: 0.7185     
+Epoch 14: loss improved from 0.88151 to 0.87891, saving model to ../../trained_models/best_unet.hdf5
+3712/3712 [==============================] - 4218s 1s/step - loss: 0.8789 - accuracy: 0.7185 - val_loss: 2.5136 - val_accuracy: 0.1520
+Epoch 15/48
+3712/3712 [==============================] - ETA: 0s - loss: 0.8755 - accuracy: 0.7191     
+Epoch 15: loss improved from 0.87891 to 0.87551, saving model to ../../trained_models/best_unet.hdf5
+3712/3712 [==============================] - 4220s 1s/step - loss: 0.8755 - accuracy: 0.7191 - val_loss: 2.4466 - val_accuracy: 0.1416
+Epoch 16/48
+3712/3712 [==============================] - ETA: 0s - loss: 0.8715 - accuracy: 0.7199     
+Epoch 16: loss improved from 0.87551 to 0.87151, saving model to ../../trained_models/best_unet.hdf5
+3712/3712 [==============================] - 4222s 1s/step - loss: 0.8715 - accuracy: 0.7199 - val_loss: 2.3556 - val_accuracy: 0.1746
+Epoch 17/48
+3712/3712 [==============================] - ETA: 0s - loss: 0.8675 - accuracy: 0.7210     
+Epoch 17: loss improved from 0.87151 to 0.86749, saving model to ../../trained_models/best_unet.hdf5
+3712/3712 [==============================] - 4232s 1s/step - loss: 0.8675 - accuracy: 0.7210 - val_loss: 2.5171 - val_accuracy: 0.1405
+Epoch 18/48
+3712/3712 [==============================] - ETA: 0s - loss: 0.8645 - accuracy: 0.7218     
+Epoch 18: loss improved from 0.86749 to 0.86453, saving model to ../../trained_models/best_unet.hdf5
+3712/3712 [==============================] - 4236s 1s/step - loss: 0.8645 - accuracy: 0.7218 - val_loss: 2.1305 - val_accuracy: 0.2682
+Epoch 19/48
+3712/3712 [==============================] - ETA: 0s - loss: 0.8613 - accuracy: 0.7234     
+Epoch 19: loss improved from 0.86453 to 0.86132, saving model to ../../trained_models/best_unet.hdf5
+3712/3712 [==============================] - 4237s 1s/step - loss: 0.8613 - accuracy: 0.7234 - val_loss: 2.3727 - val_accuracy: 0.2120
+Epoch 20/48
+3712/3712 [==============================] - ETA: 0s - loss: 0.8584 - accuracy: 0.7236     
+Epoch 20: loss improved from 0.86132 to 0.85843, saving model to ../../trained_models/best_unet.hdf5
+3712/3712 [==============================] - 4684s 1s/step - loss: 0.8584 - accuracy: 0.7236 - val_loss: 2.3547 - val_accuracy: 0.1841
+Epoch 21/48
+3712/3712 [==============================] - ETA: 0s - loss: 0.8519 - accuracy: 0.7250     
+Epoch 21: loss improved from 0.85843 to 0.85194, saving model to ../../trained_models/best_unet.hdf5
+3712/3712 [==============================] - 5318s 1s/step - loss: 0.8519 - accuracy: 0.7250 - val_loss: 2.0778 - val_accuracy: 0.2760
+Epoch 22/48
+3712/3712 [==============================] - ETA: 0s - loss: 0.8505 - accuracy: 0.7258     
+Epoch 22: loss improved from 0.85194 to 0.85049, saving model to ../../trained_models/best_unet.hdf5
+3712/3712 [==============================] - 6043s 2s/step - loss: 0.8505 - accuracy: 0.7258 - val_loss: 2.2010 - val_accuracy: 0.2206
+Epoch 23/48
+3712/3712 [==============================] - ETA: 0s - loss: 0.8466 - accuracy: 0.7266     
+Epoch 23: loss improved from 0.85049 to 0.84656, saving model to ../../trained_models/best_unet.hdf5
+3712/3712 [==============================] - 4645s 1s/step - loss: 0.8466 - accuracy: 0.7266 - val_loss: 2.1592 - val_accuracy: 0.2351
+Epoch 24/48
+3712/3712 [==============================] - ETA: 0s - loss: 0.8428 - accuracy: 0.7275     
+Epoch 24: loss improved from 0.84656 to 0.84281, saving model to ../../trained_models/best_unet.hdf5
+3712/3712 [==============================] - 4764s 1s/step - loss: 0.8428 - accuracy: 0.7275 - val_loss: 2.0444 - val_accuracy: 0.2692
+Epoch 25/48
+3712/3712 [==============================] - ETA: 0s - loss: 0.8407 - accuracy: 0.7282     
+Epoch 25: loss improved from 0.84281 to 0.84067, saving model to ../../trained_models/best_unet.hdf5
+3712/3712 [==============================] - 5703s 2s/step - loss: 0.8407 - accuracy: 0.7282 - val_loss: 2.1577 - val_accuracy: 0.2322
+Epoch 26/48
+3712/3712 [==============================] - ETA: 0s - loss: 0.8364 - accuracy: 0.7292     
+Epoch 26: loss improved from 0.84067 to 0.83637, saving model to ../../trained_models/best_unet.hdf5
+3712/3712 [==============================] - 5152s 1s/step - loss: 0.8364 - accuracy: 0.7292 - val_loss: 2.2152 - val_accuracy: 0.2311
+Epoch 27/48
+3712/3712 [==============================] - ETA: 0s - loss: 0.8324 - accuracy: 0.7305     
+Epoch 27: loss improved from 0.83637 to 0.83236, saving model to ../../trained_models/best_unet.hdf5
+3712/3712 [==============================] - 4994s 1s/step - loss: 0.8324 - accuracy: 0.7305 - val_loss: 2.2359 - val_accuracy: 0.2343
+Epoch 28/48
+3712/3712 [==============================] - ETA: 0s - loss: 0.8291 - accuracy: 0.7315     
+Epoch 28: loss improved from 0.83236 to 0.82912, saving model to ../../trained_models/best_unet.hdf5
+3712/3712 [==============================] - 4799s 1s/step - loss: 0.8291 - accuracy: 0.7315 - val_loss: 2.4690 - val_accuracy: 0.1888
+Epoch 29/48
+3712/3712 [==============================] - ETA: 0s - loss: 0.8259 - accuracy: 0.7326     
+Epoch 29: loss improved from 0.82912 to 0.82590, saving model to ../../trained_models/best_unet.hdf5
+3712/3712 [==============================] - 4367s 1s/step - loss: 0.8259 - accuracy: 0.7326 - val_loss: 2.3554 - val_accuracy: 0.2047
+Epoch 30/48
+3712/3712 [==============================] - ETA: 0s - loss: 0.8222 - accuracy: 0.7336     
+Epoch 30: loss improved from 0.82590 to 0.82218, saving model to ../../trained_models/best_unet.hdf5
+3712/3712 [==============================] - 4321s 1s/step - loss: 0.8222 - accuracy: 0.7336 - val_loss: 2.5317 - val_accuracy: 0.1791
+Epoch 31/48
+3712/3712 [==============================] - ETA: 0s - loss: 0.8177 - accuracy: 0.7346     
+Epoch 31: loss improved from 0.82218 to 0.81773, saving model to ../../trained_models/best_unet.hdf5
+3712/3712 [==============================] - 4312s 1s/step - loss: 0.8177 - accuracy: 0.7346 - val_loss: 2.5006 - val_accuracy: 0.1995
+Epoch 32/48
+3712/3712 [==============================] - ETA: 0s - loss: 0.8146 - accuracy: 0.7357     
+Epoch 32: loss improved from 0.81773 to 0.81464, saving model to ../../trained_models/best_unet.hdf5
+3712/3712 [==============================] - 4352s 1s/step - loss: 0.8146 - accuracy: 0.7357 - val_loss: 2.6136 - val_accuracy: 0.1836
+Epoch 33/48
+3712/3712 [==============================] - ETA: 0s - loss: 0.8107 - accuracy: 0.7368     
+Epoch 33: loss improved from 0.81464 to 0.81073, saving model to ../../trained_models/best_unet.hdf5
+3712/3712 [==============================] - 4342s 1s/step - loss: 0.8107 - accuracy: 0.7368 - val_loss: 2.6721 - val_accuracy: 0.1857
+Epoch 34/48
+3712/3712 [==============================] - ETA: 0s - loss: 0.8081 - accuracy: 0.7383     
+Epoch 34: loss improved from 0.81073 to 0.80807, saving model to ../../trained_models/best_unet.hdf5
+3712/3712 [==============================] - 4378s 1s/step - loss: 0.8081 - accuracy: 0.7383 - val_loss: 2.5766 - val_accuracy: 0.2038
+Epoch 35/48
+3712/3712 [==============================] - ETA: 0s - loss: 0.8037 - accuracy: 0.7395     
+Epoch 35: loss improved from 0.80807 to 0.80372, saving model to ../../trained_models/best_unet.hdf5
+3712/3712 [==============================] - 4312s 1s/step - loss: 0.8037 - accuracy: 0.7395 - val_loss: 2.6710 - val_accuracy: 0.1971
+Epoch 36/48
+3712/3712 [==============================] - ETA: 0s - loss: 0.8002 - accuracy: 0.7410     
+Epoch 36: loss improved from 0.80372 to 0.80016, saving model to ../../trained_models/best_unet.hdf5
+3712/3712 [==============================] - 4613s 1s/step - loss: 0.8002 - accuracy: 0.7410 - val_loss: 2.6197 - val_accuracy: 0.2193
+Epoch 37/48
+3712/3712 [==============================] - ETA: 0s - loss: 0.7970 - accuracy: 0.7420     
+Epoch 37: loss improved from 0.80016 to 0.79698, saving model to ../../trained_models/best_unet.hdf5
+3712/3712 [==============================] - 4754s 1s/step - loss: 0.7970 - accuracy: 0.7420 - val_loss: 2.5058 - val_accuracy: 0.2228
+Epoch 38/48
+3712/3712 [==============================] - ETA: 0s - loss: 0.7935 - accuracy: 0.7428     
+Epoch 38: loss improved from 0.79698 to 0.79354, saving model to ../../trained_models/best_unet.hdf5
+3712/3712 [==============================] - 4555s 1s/step - loss: 0.7935 - accuracy: 0.7428 - val_loss: 2.6965 - val_accuracy: 0.2115
+Epoch 39/48
+3712/3712 [==============================] - ETA: 0s - loss: 0.7909 - accuracy: 0.7437     
+Epoch 39: loss improved from 0.79354 to 0.79088, saving model to ../../trained_models/best_unet.hdf5
+3712/3712 [==============================] - 4419s 1s/step - loss: 0.7909 - accuracy: 0.7437 - val_loss: 3.6676 - val_accuracy: 0.1692
+Epoch 40/48
+3712/3712 [==============================] - ETA: 0s - loss: 0.7875 - accuracy: 0.7449     
+Epoch 40: loss improved from 0.79088 to 0.78748, saving model to ../../trained_models/best_unet.hdf5
+3712/3712 [==============================] - 5530s 1s/step - loss: 0.7875 - accuracy: 0.7449 - val_loss: 2.6654 - val_accuracy: 0.2227
+Epoch 41/48
+3712/3712 [==============================] - ETA: 0s - loss: 0.7825 - accuracy: 0.7469     
+Epoch 41: loss improved from 0.78748 to 0.78246, saving model to ../../trained_models/best_unet.hdf5
+3712/3712 [==============================] - 4788s 1s/step - loss: 0.7825 - accuracy: 0.7469 - val_loss: 2.7611 - val_accuracy: 0.2574
+Epoch 42/48
+3712/3712 [==============================] - ETA: 0s - loss: 0.7800 - accuracy: 0.7476     
+Epoch 42: loss improved from 0.78246 to 0.78002, saving model to ../../trained_models/best_unet.hdf5
+3712/3712 [==============================] - 4899s 1s/step - loss: 0.7800 - accuracy: 0.7476 - val_loss: 3.1793 - val_accuracy: 0.1784
+Epoch 43/48
+3712/3712 [==============================] - ETA: 0s - loss: 0.7754 - accuracy: 0.7493     
+Epoch 43: loss improved from 0.78002 to 0.77539, saving model to ../../trained_models/best_unet.hdf5
+3712/3712 [==============================] - 4742s 1s/step - loss: 0.7754 - accuracy: 0.7493 - val_loss: 3.0124 - val_accuracy: 0.2393
+Epoch 44/48
+3712/3712 [==============================] - ETA: 0s - loss: 0.7709 - accuracy: 0.7507     
+Epoch 44: loss improved from 0.77539 to 0.77094, saving model to ../../trained_models/best_unet.hdf5
+3712/3712 [==============================] - 6667s 2s/step - loss: 0.7709 - accuracy: 0.7507 - val_loss: 2.8805 - val_accuracy: 0.2531
+Epoch 45/48
+3712/3712 [==============================] - ETA: 0s - loss: 0.7689 - accuracy: 0.7512     
+Epoch 45: loss improved from 0.77094 to 0.76892, saving model to ../../trained_models/best_unet.hdf5
+3712/3712 [==============================] - 4701s 1s/step - loss: 0.7689 - accuracy: 0.7512 - val_loss: 3.2361 - val_accuracy: 0.2257
+Epoch 46/48
+3712/3712 [==============================] - ETA: 0s - loss: 0.7657 - accuracy: 0.7521     
+Epoch 46: loss improved from 0.76892 to 0.76575, saving model to ../../trained_models/best_unet.hdf5
+3712/3712 [==============================] - 4681s 1s/step - loss: 0.7657 - accuracy: 0.7521 - val_loss: 3.7119 - val_accuracy: 0.2422
+Epoch 47/48
+3712/3712 [==============================] - ETA: 0s - loss: 0.7617 - accuracy: 0.7538     
+Epoch 47: loss improved from 0.76575 to 0.76170, saving model to ../../trained_models/best_unet.hdf5
+3712/3712 [==============================] - 4359s 1s/step - loss: 0.7617 - accuracy: 0.7538 - val_loss: 2.7881 - val_accuracy: 0.2944
+Epoch 48/48
+3712/3712 [==============================] - ETA: 0s - loss: 0.7573 - accuracy: 0.7552     
+Epoch 48: loss improved from 0.76170 to 0.75731, saving model to ../../trained_models/best_unet.hdf5
+3712/3712 [==============================] - 4349s 1s/step - loss: 0.7573 - accuracy: 0.7552 - val_loss: 7.4199 - val_accuracy: 0.2865
