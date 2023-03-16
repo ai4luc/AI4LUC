@@ -1,1 +1,1 @@
-![image](set_page/img/pipeline.jpeg)
+![image](../set_page/img/smartlabelmask.jpeg)
