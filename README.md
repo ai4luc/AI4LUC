@@ -20,13 +20,15 @@ To simply run the source code, do the following steps:
     ```
     python==3.9
     CUDA==11.6.1
-    torch==1.12
-    torchvision==0.13
+    MPS (Apple M chips devices)
+    torch
+    torchvision
     tensorflow
     tensorflow-metal (Apple M chips)
     scikit-learn
     scikit-image
     Pillow
+    GDAL
     imageio
     imgaug
     rasterio
@@ -35,17 +37,7 @@ To simply run the source code, do the following steps:
     tqdm
     ```
 
-### Data Engineering module
-
-### Contextual Classification training module
-
-### Smart mask labeling module
-
-### Pixel-based classification module
-To employ DeepLabv3plus and U-Net trained weights you need a Apple M chip. 
-
-### Application module
-
+The specifics instructions are described in each module (directory) in this repository. 
 
 ## Acknowledgments
 
