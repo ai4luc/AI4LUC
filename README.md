@@ -8,23 +8,14 @@ The Artificial Intelligence for Land Use and Land Cover Classification1 (AI4LUC)
 
 ![image](set_page/img/pipeline.jpeg)
 
-AI4LUC is a general method but an instance of a method was developed based on the Python language, the Conda environment, and using geoprocessing packages for remote sensing images, like GDAL and earthpy. Within the smart mask labeling module, for morphological transformations were used based on scikit-image and OpenCV. Regarding DL and DNNs, frameworks/APIs such as Tensorflow, Keras, scikit-learn, and PyTorch were used. The experiments were run on the [SDumont](https://sdumont.lncc.br/) supercomputer, using Bull Sequana X1120 computing nodes where each one has 2 x Intel Xeon Skylake 6252 CPU, 4 x NVIDIA Volta V100 GPUs, and 384 GB of RAM. For experiments that do not require more GPU capacity, a second computer was used with 8GB of RAM, an Apple M1 processor with an 8-core CPU, 7-core GPU, and 16-core Neural Engine.
+AI4LUC is a general method but an instance of a method was developed based on the Python language, the Conda environment, and using geoprocessing packages for remote sensing images, like GDAL and earthpy. Within the smart mask labeling module, for morphological transformations were used based on scikit-image and OpenCV. Regarding DL and DNNs, frameworks/APIs such as Tensorflow, Keras, scikit-learn, and PyTorch were used. The experiments were run on the [SDumont](https://sdumont.lncc.br/) supercomputer, using Bull Sequana X1120 computing nodes where each one has 2 x Intel Xeon Skylake 6252 CPU, 4 x NVIDIA Volta V100 GPUs, and 384 GB of RAM. For experiments that do not require more GPU capacity, a second computer was used with 8GB of RAM, an Apple M1 processor with an 8-core CPU, 7-core GPU, and 16-core Neural Engine. Further details regarding the method documentation, access [here](https://drive.google.com/file/d/1ez-55LoOPiyaCJdD-LrTJ2-UNBuEPODW/view?usp=share_link)
 
-### Data Engineering module
-
-### Contextual Classification training module
-
-### Smart mask labeling module
-
-### Pixel-based classification module
-
-### Application module
 
 ## How to use the code
 
 To simply run the source code, do the following steps:
 
-1. Install the following requirements:
+### Install the following requirements:
     
     ```
     python==3.9
@@ -44,8 +35,16 @@ To simply run the source code, do the following steps:
     tqdm
     ```
 
+### Data Engineering module
 
-2. **Clone** the repo and **download** the dataset. By default the running code will search for the dataset in `data/cerradov3` directory inside the repo.
+### Contextual Classification training module
+
+### Smart mask labeling module
+
+### Pixel-based classification module
+To employ DeepLabv3plus and U-Net trained weights you need a Apple M chip. 
+
+### Application module
 
 
 ## Acknowledgments
