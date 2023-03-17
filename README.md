@@ -15,13 +15,17 @@ AI4LUC is a general method but an instance of a method was developed based on th
 
 To simply run the source code, do the following steps:
 
-### Install the following requirements:
-miniconda
+### Setting conda environment
+1. Install [Miniconda](https://docs.conda.io/en/latest/miniconda.html) installer for conda;
+2. Create a new environment
+    ```
+    conda create -n env_name
+    ```
+3. Install the following requirements: 
     
     ```
-    python==3.9
-    CUDA==11.6.1
-    MPS (Apple M chips devices)
+    python==3.9 (or later)
+    CUDA
     torch
     torchvision
     tensorflow
@@ -31,14 +35,16 @@ miniconda
     Pillow
     GDAL
     imageio
+    numpy
     imgaug
     rasterio
     numpy
     segmentation-models-pytorch
     tqdm
     ```
+For users of Apple devices with any version of the M chip, use the [tensorflow-metal](https://developer.apple.com/metal/tensorflow-plugin/) additional GPU usage setting to train models written with TensorFlow package more efficiently and quickly.
 
-The specifics instructions are described in each module (directory) in this repository. 
+The specific use instructions for the modules are described in each directory in this repository. 
 
 ## Acknowledgments
 
