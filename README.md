@@ -21,7 +21,12 @@ To simply run the source code, do the following steps:
     ```
     conda create -n env_name
     ```
-3. Install the following requirements: 
+3. Activate it
+    ```
+    conda activate env_name
+    ```
+
+4. Install the following requirements: 
     
     ```
     python==3.9 (or later)
