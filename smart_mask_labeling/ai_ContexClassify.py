@@ -46,7 +46,7 @@ import tools
 # -------- CerraNetv3 --------
 def cerranet_module(data):
     # Model rgba_data
-    path_model = '../AIModels/trained_models/cerranetv3_4rgba_45e_onlytrain_t4_Best.hdf5'
+    path_model = '../AIModels/trained_models/cerranetv3_8class_rgba_nirgb/cerranetv3_4rgba_45e_onlytrain_t2_best.hdf5'
     # Starting the model
     cerranetv3 = load_model(path_model)
     # Data Visualization

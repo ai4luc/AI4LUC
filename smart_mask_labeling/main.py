@@ -208,7 +208,6 @@ def main(path_dataset, filter_mask: str, classify_mask: False, address_to_save: 
                             address_to_save=address_to_save, classify_mask=classify_mask)
             item = item + 1
 
-
             plt.figure(figsize=(10, 10))
             print('Classes do polygon: ', np.unique(tf.keras.utils.img_to_array(classified_mask)))
             plt.imshow(tf.keras.utils.img_to_array(classified_mask), cmap='CMRmap')
@@ -229,7 +228,8 @@ def main(path_dataset, filter_mask: str, classify_mask: False, address_to_save: 
             item = item + 1
 
 
-path_input = '../data/cerradata/test/patches/building/20200428_209_133_L4_14597*.tif'
-path_output = '../data/cerradata/test'
+path_input = '../data/cerradata/test/images/savanna_formation/20200428_209_132_L4_135106.tif'
+path_output = '../data/cerradata/test/'
+
 if __name__ == '__main__':
-    main(path_dataset=path_input, filter_mask='cfps_otsu', classify_mask=True, address_to_save=path_output)
+    main(path_dataset=path_input, filter_mask='bnow_otsu', classify_mask=True, address_to_save=path_output)
