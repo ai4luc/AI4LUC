@@ -16,18 +16,18 @@ from glob import glob
 import skimage.io as skio
 
 # Metrics
-from sklearn.metrics import f1_score
+from sklearn.metrics import f1_score, precision_score
 from keras import metrics
 
 # Graphs
 import matplotlib.patches as mpatches
 import matplotlib.pyplot as plt
-import plotly.express as px
 
 # -------- Pixel-based assessment --------
 # Set up
 classes_cerradata = ['building', 'cultivated_area', 'forest', 'non_observed',
                      'other_uses', 'pasture', 'savanna_formation', 'water']
+
 
 # Data loading
 
@@ -51,30 +51,38 @@ def load_image(path):
 
     return patch, name_file
 
+
 # Paths
 path = '../data/cerradata/test/'
-y_true, name_ytrue = load_image(path+'manually_mask/water/*.tif')
-y_pred, name_ypred = load_image(path+'ai4luc_masks/water/*.tif')
+y_true, name_ytrue = load_image(path + 'manually_masks/BNOW/**/*.tif')
+y_pred, name_ypred = load_image(path + 'models_prediction/deeplabv3plus_mask/BNOW/**/*.tif')
 
 y_pred = np.array(y_pred).astype('int32')
 y_true = np.array(y_true).astype('int32')
+print(np.unique(y_true))
 
 # Metrics
+"""
 # 1. Mean IoU
 meanIou = metrics.MeanIoU(num_classes=8)
 meanIou.update_state(y_true, y_pred)
 result_meanIou = meanIou.result().numpy()
-print(result_meanIou)
+print('Mean IoU:', result_meanIou)
 
 # 2. IoU
-iou = metrics.IoU(num_classes=8,target_class_ids=[0,1,2,3,4,5,6,7])
+iou = metrics.IoU(num_classes=8, target_class_ids=[0, 1, 2, 3, 4, 5, 6, 7])
 iou.update_state(y_true, y_pred)
 result_Iou = iou.result().numpy()
-print(result_Iou)
+print('IoU:', result_Iou)
+"""
 
 # 3. F1-score
 f1score = f1_score(y_true.flatten(), y_pred.flatten(), average='weighted')
-print(f1score)
+print('F1-score:', float(f1score))
+
+# Precision
+precision = precision_score(y_true.flatten(), y_pred.flatten(), average='weighted')
+print('Precision:', float(precision))
 
 """
 # Check whether there is mask with id > 7

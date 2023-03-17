@@ -20,13 +20,14 @@ import matplotlib.pyplot as plt
 import tensorflow as tf
 from keras.preprocessing import image
 from keras.models import load_model
-from sklearn.metrics import classification_report, f1_score, accuracy_score
+from sklearn.metrics import classification_report, f1_score, accuracy_score, precision_score
 
 # Arrays
 y_predict = []
 y_true = []
 overall_acc_model = []
 overall_f1_model = []
+overall_p_model = []
 overall_classes = []
 overall_perclass = []
 bl = []
@@ -43,7 +44,7 @@ classes_cerradata = ['building', 'cultivated_area', 'forest', 'non_observed',
 
 # Loading trained_models and weight
 print('Connecting ...')
-path_model = glob('../AIModels/trained_models/*.hdf5')
+path_model = glob('../AIModels/trained_models/resnet50/*.hdf5')
 # Reading models
 for model in path_model:
     # Starting model
@@ -67,13 +68,13 @@ for model in path_model:
     o = 0
 
     # Path Dataset
-    path_dataset = glob('../data/cerradata/test/patches/building/*.tif')
+    path_dataset = glob('../data/cerradata/test/images/building/*.tif')
     path_dataset.sort()
     for raster_path in path_dataset:
         # Taking name class
         class_name = os.path.basename(os.path.dirname(raster_path))
         # Reading image
-        patch = image.load_img(raster_path, target_size=(256, 256), color_mode='rgba')
+        patch = image.load_img(raster_path, target_size=(256, 256), color_mode='rgb')
         x_test = image.img_to_array(patch)
         x_test = tf.keras.layers.Rescaling(scale=1 / 255)(x_test)
         x_test = np.expand_dims(x_test, axis=0)
@@ -113,13 +114,13 @@ for model in path_model:
     o = 0
 
     # Path Dataset
-    path_dataset = glob('../data/cerradata/test/patches/cultivated_area/*.tif')
+    path_dataset = glob('../data/cerradata/test/images/cultivated_area/*.tif')
     path_dataset.sort()
     for raster_path in path_dataset:
         # Taking name class
         class_name = os.path.basename(os.path.dirname(raster_path))
         # Reading image
-        patch = image.load_img(raster_path, target_size=(256, 256), color_mode='rgba')
+        patch = image.load_img(raster_path, target_size=(256, 256), color_mode='rgb')
         x_test = image.img_to_array(patch)
         x_test = tf.keras.layers.Rescaling(scale=1 / 255)(x_test)
         x_test = np.expand_dims(x_test, axis=0)
@@ -159,13 +160,13 @@ for model in path_model:
     o = 0
 
     # Path Dataset
-    path_dataset = glob('../data/cerradata/test/patches/forest/*.tif')
+    path_dataset = glob('../data/cerradata/test/images/forest/*.tif')
     path_dataset.sort()
     for raster_path in path_dataset:
         # Taking name class
         class_name = os.path.basename(os.path.dirname(raster_path))
         # Reading image
-        patch = image.load_img(raster_path, target_size=(256, 256), color_mode='rgba')
+        patch = image.load_img(raster_path, target_size=(256, 256), color_mode='rgb')
         x_test = image.img_to_array(patch)
         x_test = tf.keras.layers.Rescaling(scale=1 / 255)(x_test)
         x_test = np.expand_dims(x_test, axis=0)
@@ -205,13 +206,13 @@ for model in path_model:
     o = 0
 
     # Path Dataset
-    path_dataset = glob('../data/cerradata/test/patches/non_observed/*.tif')
+    path_dataset = glob('../data/cerradata/test/images/non_observed/*.tif')
     path_dataset.sort()
     for raster_path in path_dataset:
         # Taking name class
         class_name = os.path.basename(os.path.dirname(raster_path))
         # Reading image
-        patch = image.load_img(raster_path, target_size=(256, 256), color_mode='rgba')
+        patch = image.load_img(raster_path, target_size=(256, 256), color_mode='rgb')
         x_test = image.img_to_array(patch)
         x_test = tf.keras.layers.Rescaling(scale=1 / 255)(x_test)
         x_test = np.expand_dims(x_test, axis=0)
@@ -251,13 +252,13 @@ for model in path_model:
     o = 0
 
     # Path Dataset
-    path_dataset = glob('../data/cerradata/test/patches/other_uses/*.tif')
+    path_dataset = glob('../data/cerradata/test/images/other_uses/*.tif')
     path_dataset.sort()
     for raster_path in path_dataset:
         # Taking name class
         class_name = os.path.basename(os.path.dirname(raster_path))
         # Reading image
-        patch = image.load_img(raster_path, target_size=(256, 256), color_mode='rgba')
+        patch = image.load_img(raster_path, target_size=(256, 256), color_mode='rgb')
         x_test = image.img_to_array(patch)
         x_test = tf.keras.layers.Rescaling(scale=1 / 255)(x_test)
         x_test = np.expand_dims(x_test, axis=0)
@@ -297,13 +298,13 @@ for model in path_model:
     o = 0
 
     # Path Dataset
-    path_dataset = glob('../data/cerradata/test/patches/pasture/*.tif')
+    path_dataset = glob('../data/cerradata/test/images/pasture/*.tif')
     path_dataset.sort()
     for raster_path in path_dataset:
         # Taking name class
         class_name = os.path.basename(os.path.dirname(raster_path))
         # Reading image
-        patch = image.load_img(raster_path, target_size=(256, 256), color_mode='rgba')
+        patch = image.load_img(raster_path, target_size=(256, 256), color_mode='rgb')
         x_test = image.img_to_array(patch)
         x_test = tf.keras.layers.Rescaling(scale=1 / 255)(x_test)
         x_test = np.expand_dims(x_test, axis=0)
@@ -343,13 +344,13 @@ for model in path_model:
     o = 0
 
     # Path Dataset
-    path_dataset = glob('../data/cerradata/test/patches/savanna_formation/*.tif')
+    path_dataset = glob('../data/cerradata/test/images/savanna_formation/*.tif')
     path_dataset.sort()
     for raster_path in path_dataset:
         # Taking name class
         class_name = os.path.basename(os.path.dirname(raster_path))
         # Reading image
-        patch = image.load_img(raster_path, target_size=(256, 256), color_mode='rgba')
+        patch = image.load_img(raster_path, target_size=(256, 256), color_mode='rgb')
         x_test = image.img_to_array(patch)
         x_test = tf.keras.layers.Rescaling(scale=1 / 255)(x_test)
         x_test = np.expand_dims(x_test, axis=0)
@@ -389,13 +390,13 @@ for model in path_model:
     o = 0
 
     # Path Dataset
-    path_dataset = glob('../data/cerradata/test/patches/water/*.tif')
+    path_dataset = glob('../data/cerradata/test/images/water/*.tif')
     path_dataset.sort()
     for raster_path in path_dataset:
         # Taking name class
         class_name = os.path.basename(os.path.dirname(raster_path))
         # Reading image
-        patch = image.load_img(raster_path, target_size=(256, 256), color_mode='rgba')
+        patch = image.load_img(raster_path, target_size=(256, 256), color_mode='rgb')
         x_test = image.img_to_array(patch)
         x_test = tf.keras.layers.Rescaling(scale=1 / 255)(x_test)
         x_test = np.expand_dims(x_test, axis=0)
@@ -426,6 +427,8 @@ for model in path_model:
     # Assessment
     f1score = f1_score(y_true, y_predict, average='weighted')
     overall_f1_model.append(f1score)
+    precisao = precision_score(y_true, y_predict, average='weighted')
+    overall_p_model.append(precisao)
     acc = accuracy_score(y_true, y_predict)
     overall_acc_model.append(acc)
     class_report = classification_report(y_true, y_predict, target_names=classes_cerradata)
@@ -434,15 +437,19 @@ for model in path_model:
 # -------  Statistics -------
 # Standard deviation
 overall_std_f1 = np.std(overall_f1_model)
+overall_std_prec = np.std(overall_p_model)
 overall_std_acc = np.std(overall_acc_model)
 # Mean
 overall_mean_f1 = np.mean(overall_f1_model)
+overall_mean_p = np.mean(overall_p_model)
 overall_mean_acc = np.mean(overall_acc_model)
 
 # Report making
 print('Scores:')
 print('F1-Score:')
 print(overall_f1_model)
+print('Precision:')
+print(overall_p_model)
 print('Accuracy:')
 print(overall_acc_model)
 print('Accuracy per class:')
@@ -450,11 +457,14 @@ print(overall_classes[0])
 
 print('Overall Statistics')
 print('STD:')
-print(overall_std_f1)
-print(overall_std_acc)
+print('F1-score: ', overall_std_f1)
+print('Precision: ', overall_std_prec)
+print('Accuracy: ', overall_std_acc)
+
 print('Mean:')
-print(overall_mean_f1)
-print(overall_mean_acc)
+print('F1-score: ', overall_mean_f1)
+print('Precision: ', overall_mean_p)
+print('Accuracy: ', overall_mean_acc)
 
 print('Classifications per subsets:')
 print('Bl:', bl)
@@ -466,12 +476,18 @@ print('Pa:', pa)
 print('Sa:', sa)
 print('Wt:', wt)
 
-with open('CerraNetv3 Overall results.csv', 'w', encoding='utf-8') as f:
-    f.write('Overall CerraNetv3 performance report \n')
+with open('ResNet50 plus Precision Overall results.csv', 'w', encoding='utf-8') as f:
+    f.write('Overall ResNet50 performance report \n')
     f.write('1. Stand deviation F1-Score: \n')
     f.write(str(overall_std_f1))
     f.write('\n2. Mean F1-Score:\n')
     f.write(str(overall_mean_f1))
+
+    f.write('1. Stand deviation Precision: \n')
+    f.write(str(overall_std_prec))
+    f.write('\n2. Mean Precision:\n')
+    f.write(str(overall_mean_p))
+
     f.write('\n3. Score per class:\n')
     f.write(str(overall_classes))
     f.write('4. All classification per subset:\n')
