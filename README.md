@@ -62,3 +62,30 @@ The specific use instructions for the modules are described in each directory in
 This research was developed within the [**IDeepS**](https://github.com/vsantjr/IDeepS) project which is supported by the Brazilian LNCC/MCTI via resources of the [SDumont supercomputer](http://sdumont.lncc.br). This research was also supported by the Brazilian agencies CAPES. 
 
 ## Reference
+MIRANDA, M. S. AI4LUC: pixel-based classification of land use and land cover via deep learning and a cerrado image dataset. version: 2023-04-03. 101 p. IBI: <8JMKD3MGP3W34T/48QQB65>. Dissertação (Mestrado em Computação Aplicada) - Instituto Nacional de Pesquisas Espaciais (INPE), São José dos Campos, 2023. Available in: <http://urlib.net/ibi/8JMKD3MGP3W34T/48QQB65>.
+
+@MastersThesis{Miranda::PiClLa,
+               author = "Miranda, Mateus de Souza",
+                title = "AI4LUC: pixel-based classification of land use and land cover via 
+                         deep learning and a cerrado image dataset",
+               school = "Instituto Nacional de Pesquisas Espaciais (INPE)",
+              address = "S{\~a}o Jos{\'e} dos Campos",
+                month = "2023/03/28",
+             keywords = "classifica{\c{c}}{\~a}o de imagem baseada em pixels, rede neural 
+                         convolucional, cerrado, sensoriamento remoto, CBERS-4A, image 
+                         pixel-based classification, convolutional neural network, cerrado, 
+                         remote sensing, CBERS-4A.",
+            committee = "Santiago J{\'u}nior, Valdivino Alexandre de and K{\"o}rting, 
+                         Thales Sehn and Shiguemori, Elcio and Escada, Maria Isabel Sobral 
+                         and Papa, Jo{\~a}o Paulo",
+         englishtitle = "AI4LUC: classifica{\c{c}}{\~a}o baseada em pixels de uso e 
+                         cobertura da Terra atrav{\'e}s de aprendizado profundo e um 
+                         conjunto de imagens sobre o Cerrado",
+             language = "en",
+                pages = "101",
+                  ibi = "8JMKD3MGP3W34T/48QQB65",
+                  url = "http://urlib.net/ibi/8JMKD3MGP3W34T/48QQB65",
+           targetfile = "Master's dissertation by Mateus de Souza Miranda CAP INPE 
+                         Official_com marcas.pdf",
+        urlaccessdate = "09 abr. 2023"
+}
