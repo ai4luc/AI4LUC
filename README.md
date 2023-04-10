@@ -62,7 +62,7 @@ The specific use instructions for the modules are described in each directory in
 This research was developed within the [**IDeepS**](https://github.com/vsantjr/IDeepS) project which is supported by the Brazilian LNCC/MCTI via resources of the [SDumont supercomputer](http://sdumont.lncc.br). This research was also supported by the Brazilian agencies CAPES. 
 
 ## Reference
-MIRANDA, M. S. AI4LUC: pixel-based classification of land use and land cover via deep learning and a cerrado image dataset. version: 2023-04-03. 101 p. IBI: <8JMKD3MGP3W34T/48QQB65>. Dissertação (Mestrado em Computação Aplicada) - Instituto Nacional de Pesquisas Espaciais (INPE), São José dos Campos, 2023. Available in: <http://urlib.net/ibi/8JMKD3MGP3W34T/48QQB65>.
+MIRANDA, M. S. AI4LUC: pixel-based classification of land use and land cover via deep learning and a cerrado image dataset. version: 2023-04-03. 101 p. IBI: <8JMKD3MGP3W34T/48QQB65>. Dissertação (Mestrado em Computação Aplicada) - Instituto Nacional de Pesquisas Espaciais (INPE), São José dos Campos, 2023. Available in: ...
 
 ```
     @MastersThesis{Miranda::PiClLa,
