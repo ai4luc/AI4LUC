@@ -27,7 +27,7 @@ To simply run the source code, do the following steps:
     conda activate env_name
     ```
 
-4. Install the following requirements: 
+4. Install the env.yml: 
     
     ```
     python==3.9 (or later)
@@ -51,7 +51,11 @@ To simply run the source code, do the following steps:
     ```
 For users of Apple devices with any version of the M chip, use the [tensorflow-metal](https://developer.apple.com/metal/tensorflow-plugin/) additional GPU usage setting to train models written with TensorFlow package more efficiently and quickly.
 
-5. **Clone** the reposotiry and **download** the dataset. By default the running code will search for the dataset in `/cerradov3/` directory within.
+5. **Clone** the reposotiry and **download** the dataset, By default the running code will search for the dataset in `/cerradov3/` directory within. Or cloning the repository:
+    ```
+    git clone https://github.com/ai4luc/AI4LUC.git
+    ```
+
 7. If you want to create your own database, consider starting from the first module of the pipeline. Label your dataset by assigning a label to the image patch. Then use CerraNetv3 to learn how to classify your dataset. After the model is trained, use the `.hdf5` file in the python `ai_ContextualClassificatio.py` file inside the `smart_mask_labeling module`.
 
 The specific use instructions for the modules are described in each directory in this repository. 
